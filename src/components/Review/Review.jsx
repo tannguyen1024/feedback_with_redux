@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 
 class Review extends Component {
 
+        backClick = () => {
+        this.props.history.push('/Comments'); /* This allows user to return to previous page */
+    }
+
     handleClick = () => {
         this.props.dispatch({ type: 'Submit' });
         this.props.history.push('/Success');
@@ -16,6 +20,7 @@ class Review extends Component {
                 <p>Understanding: <span>{this.props.reduxState.understanding}</span></p>
                 <p>Support: <span>{this.props.reduxState.support}</span></p>
                 <p>Comments: <span>{this.props.reduxState.comments}</span></p>
+                <button onClick={this.backClick}>Previous</button>
                 <button onClick={this.handleClick}>Submit</button>
             </>
         )

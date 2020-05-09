@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import { connect } from 'react-redux';
-import { HashRouter, Route } from 'react-router-dom';
+import { HashRouter, Route, Link } from 'react-router-dom';
 
 /* Page Components Here */
 import Feeling from '../Feeling/Feeling'
@@ -40,7 +40,10 @@ class App extends Component {
           <Route path="/Comments" render={(props) => <Comments {...props} dispatch={this.props.dispatch} />}  />
           <Route path="/Review" render={(props) => <Review {...props} dispatch={this.props.dispatch} />}  />
           <Route path="/Success" component={Success} />
+          <br/>
+          <Link to="/"><button>↺ Restart</button></Link>
         </HashRouter>
+        
         <p></p>
       </div>
     ) // End return
