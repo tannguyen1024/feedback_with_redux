@@ -5,7 +5,6 @@ import { Button } from '@material-ui/core';
 import 'typeface-roboto';
 import { connect } from 'react-redux';
 import { HashRouter, Route, Link } from 'react-router-dom';
-import { positions } from '@material-ui/system';
 
 /* Page Components Here */
 import Feeling from '../Feeling/Feeling'
@@ -14,6 +13,7 @@ import Support from '../Support/Support'
 import Comments from '../Comments/Comments'
 import Review from '../Review/Review'
 import Success from '../Success/Success'
+import Admin from '../Admin/Admin'
 
 class App extends Component {
 
@@ -42,6 +42,7 @@ class App extends Component {
           <Route path="/Comments" render={(props) => <Comments {...props} dispatch={this.props.dispatch} />}  />
           <Route path="/Review" render={(props) => <Review {...props} dispatch={this.props.dispatch} />}  />
           <Route path="/Success" component={Success} />
+          <Route path="/admin" component={Admin} />
           <p/>
           <div className="restart"><Link to="/"><Button className="fab" color="secondary" size="small" variant="outlined">↺ Restart</Button></Link></div>
         </HashRouter>
