@@ -3,6 +3,10 @@ import React, {Component} from 'react';
 class Support extends Component {
     state = { support: '' }
 
+    backClick = () => {
+        this.props.history.push('/Understanding'); /* This allows user to return to previous page */
+    }
+
     componentDidMount = () => {
         // console.log(`(Support.jsx) this.props.dispatch is:`, this.props.dispatch)
     }
@@ -31,6 +35,7 @@ class Support extends Component {
                 <br />
                 <input placeholder="#" min="0" max="5" type="number" onChange={this.handleChange} />
                 <br />
+                <button onClick={this.backClick}>Previous</button>
                 <button onClick={this.handleClick}>Next</button>
             </>
         )

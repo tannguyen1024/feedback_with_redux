@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 class Comments extends Component {
     state = { comments: '' }
 
+    backClick = () => {
+        this.props.history.push('/Support'); /* This allows user to return to previous page */
+    }
+
     componentDidMount = () => {
         // console.log(`(Comments.jsx) this.props.dispatch is:`, this.props.dispatch)
     }
@@ -25,6 +29,7 @@ class Comments extends Component {
                 <br />
                 <input  type="text" onChange={this.handleChange} />
                 <br />
+                <button onClick={this.backClick}>Previous</button>
                 <button onClick={this.handleClick}>Next</button>
             </>
         )
