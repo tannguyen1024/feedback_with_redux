@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class Comments extends Component {
+    state = { comments: '' }
 
     componentDidMount = () => {
         // console.log(`(Comments.jsx) this.props.dispatch is:`, this.props.dispatch)

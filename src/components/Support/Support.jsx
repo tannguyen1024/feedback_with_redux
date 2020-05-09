@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 class Support extends Component {
+    state = { support: '' }
 
     componentDidMount = () => {
         // console.log(`(Support.jsx) this.props.dispatch is:`, this.props.dispatch)
@@ -12,8 +13,14 @@ class Support extends Component {
     }
 
     handleClick = () => {
+        if (this.state.support < 0 || this.state.support > 5 || this.state.support === '') {
+            alert(`Please enter a value between 0-5`);
+            return;
+        }
+        else {
         this.props.dispatch({ type: 'Support', payload: this.state });
         this.props.history.push('/Comments');
+        }
     }
 
     render() {

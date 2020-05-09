@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class Understanding extends Component {
+    state = { understanding: '' }
 
     componentDidMount = () => {
         // console.log(`(Understanding.jsx) this.props.dispatch is:`, this.props.dispatch)
@@ -12,8 +13,14 @@ class Understanding extends Component {
     }
 
     handleClick = () => {
-        this.props.dispatch({ type: 'Understanding', payload: this.state });
-        this.props.history.push('/Support');
+        if (this.state.understanding < 0 || this.state.understanding > 5 || this.state.understanding === '') {
+            alert(`Please enter a value between 0-5`);
+            return;
+        }
+        else {
+            this.props.dispatch({ type: 'Understanding', payload: this.state });
+            this.props.history.push('/Support');
+        }
     }
 
     render() {

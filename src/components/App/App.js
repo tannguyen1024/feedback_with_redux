@@ -43,9 +43,9 @@ class App extends Component {
         </HashRouter>
         <p></p>
       </div>
-    );
-  }
-}
+    ) // End return
+  } // End render
+} // End App
 
 const putReduxStateOnProps = (reduxState) => ({ reduxState });
 export default connect(putReduxStateOnProps)(App);
