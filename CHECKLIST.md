@@ -6,3 +6,4 @@
 5. npm run client
 6. Created folders and JSX files.
 7. HashRouter functionality between files.
+8. Set up Redux
