@@ -18,29 +18,29 @@ let review = { feeling: feeling, understanding: understanding, support: support,
 
 /* Create firstReducer Function */
 const firstReducer = (state = { feeling: '', understanding: '', support: '', review: '', comments: '' }, action) => {
-    // console.log('(index.js) firstReducer loaded');
+    // console.log('(index.js) firstReducer loaded'); /* No longer needed */
     if (action.type === 'Feeling') {
         console.log('Feeling set to:', action.payload)
-        // console.log(`(index.js) state is:`, state)
+        // console.log(`(index.js) state is:`, state) /* No longer needed */
         feeling = action.payload.feeling;
         console.log('here is', feeling)
         return { ...state, feeling: action.payload.feeling };
     }
     if (action.type === 'Understanding') {
         console.log('Understanding set to:', action.payload)
-        // console.log(`(index.js) state is:`, state)
+        // console.log(`(index.js) state is:`, state) /* No longer needed */
         understanding = action.payload.understanding;
         return { ...state, understanding: action.payload.understanding };
     }
     if (action.type === 'Support') {
         console.log('Support set to:', action.payload)
-        // console.log(`(index.js) state is:`, state)
+        // console.log(`(index.js) state is:`, state) /* No longer needed */
         support = action.payload.support;
         return { ...state, support: action.payload.support };
     }
     if (action.type === 'Comments') {
         console.log('Comments set to:', action.payload)
-        // console.log(`(index.js) state is:`, state)
+        // console.log(`(index.js) state is:`, state) /* No longer needed */
         comments = action.payload.comments;
         return { ...state, comments: action.payload.comments };
     }
@@ -48,7 +48,7 @@ const firstReducer = (state = { feeling: '', understanding: '', support: '', rev
         // AXIOS POST here
         review = { feeling: feeling, understanding: understanding, support: support, comments: comments };
         console.log(`Let's post this to AXIOS now:`, review);
-        axios.post('/', review)
+        axios.post('/post', review)
             .then(response => {
                 console.log(`Success!`)
             }).catch(error => {
