@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, OutlinedInput } from '@material-ui/core';
 
 class Comments extends Component {
     state = { comments: '' }
@@ -27,10 +28,10 @@ class Comments extends Component {
                 <h1>Any comments you want to leave?</h1>
                 <label>Comments</label>
                 <br />
-                <input  type="text" onChange={this.handleChange} />
-                <br />
-                <button onClick={this.backClick}>Previous</button>
-                <button onClick={this.handleClick}>Next</button>
+                <OutlinedInput multiline="true" type="text" onChange={this.handleChange} />
+                <p />
+                <Button color="secondary" variant="contained" size="small" onClick={this.backClick}>Previous</Button>
+                <Button color="primary" variant="contained" size="small" onClick={this.handleClick}>Next</Button>
             </>
         )
     }
