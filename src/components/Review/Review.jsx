@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 class Review extends Component {
 
     handleClick = () => {
+        this.props.dispatch({ type: 'Submit' });
         this.props.history.push('/Success');
     }
 

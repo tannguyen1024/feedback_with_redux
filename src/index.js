@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
+import axios from 'axios';
 
 /* Insert Redux */
 import { createStore } from 'redux';
@@ -13,6 +14,7 @@ let feeling;
 let understanding;
 let support;
 let comments;
+let review = { feeling: feeling, understanding: understanding, support: support, comments: comments };
 
 /* Create firstReducer Function */
 const firstReducer = (state = { feeling: '', understanding: '', support: '', review: '', comments: '' }, action) => {
@@ -21,7 +23,7 @@ const firstReducer = (state = { feeling: '', understanding: '', support: '', rev
         console.log('Feeling set to:', action.payload)
         // console.log(`(index.js) state is:`, state)
         feeling = action.payload.feeling;
-        console.log('here is',feeling)
+        console.log('here is', feeling)
         return { ...state, feeling: action.payload.feeling };
     }
     if (action.type === 'Understanding') {
@@ -41,6 +43,17 @@ const firstReducer = (state = { feeling: '', understanding: '', support: '', rev
         // console.log(`(index.js) state is:`, state)
         comments = action.payload.comments;
         return { ...state, comments: action.payload.comments };
+    }
+    if (action.type === 'Submit') {
+        // AXIOS POST here
+        review = { feeling: feeling, understanding: understanding, support: support, comments: comments };
+        console.log(`Let's post this to AXIOS now:`, review);
+        axios.post('/', review)
+            .then(response => {
+                console.log(`Success!`)
+            }).catch(error => {
+                console.log(`Error with adding Review`, error);
+            }) // End AXIOS POST
     }
     // console.log(`(index.js) state is:`,state) /* No longer needed */
     return state;

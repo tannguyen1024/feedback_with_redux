@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+// Moved AXIOS to index.js
 import './App.css';
 
 import { connect } from 'react-redux';
