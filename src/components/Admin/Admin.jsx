@@ -27,7 +27,7 @@ class Admin extends Component {
     } // End axios GET
 
     handleDelete = (id) => {
-        console.log(`Delete ID is:`, id)
+        console.log(`Delete ID is:`, id.id)
         /* Sweet Alert 2 Integration */
         Swal.fire({
             title: 'Are you sure?',
@@ -44,7 +44,7 @@ class Admin extends Component {
                     'Your file has been deleted.',
                     'success'
                 )
-                axios.delete(`/feedback/${id}`)
+                axios.delete(`/feedback/${id.id}`)
                     .then(response => {
                         console.log('Here is your response:', response); /* DELETE from Server works! */
                         this.getFeedback(); /* Refreshes DOM with updated response.data */
