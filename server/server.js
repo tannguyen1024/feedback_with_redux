@@ -10,8 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
-app.use('/post', feedback); /* This re-routes anything from /post to router js file */
-app.use('/get', feedback); /* This re-routes anything from /post to router js file */
+app.use('/feedback', feedback); /* This re-routes anything from /post to router js file */
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {

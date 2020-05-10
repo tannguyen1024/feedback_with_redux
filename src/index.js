@@ -48,7 +48,7 @@ const firstReducer = (state = { feeling: '', understanding: '', support: '', com
         // AXIOS POST here
         review = { feeling: feeling, understanding: understanding, support: support, comments: comments };
         console.log(`Let's post this to AXIOS now:`, review);
-        axios.post('/post', review)
+        axios.post('/feedback', review)
             .then(response => {
                 console.log(`Success!`)
             }).catch(error => {

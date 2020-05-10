@@ -45,6 +45,7 @@ class App extends Component {
           <Route path="/admin" component={Admin} />
           <p/>
           <div className="restart"><Link to="/"><Button className="fab" color="secondary" size="small" variant="outlined">↺ Restart</Button></Link></div>
+          <div className="admin"><Link to="/admin"><Button className="fab" color="secondary" size="small" variant="outlined">⍟ Admin</Button></Link></div>
         </HashRouter>
         
         <p></p>

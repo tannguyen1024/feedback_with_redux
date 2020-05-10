@@ -28,7 +28,7 @@ class Comments extends Component {
                 <h1>Any comments you want to leave?</h1>
                 <label>Comments</label>
                 <br />
-                <OutlinedInput multiline="true" type="text" onChange={this.handleChange} />
+                <OutlinedInput multiline={true} type="text" onChange={this.handleChange} />
                 <p />
                 <Button color="secondary" variant="contained" size="small" onClick={this.backClick}>Previous</Button>
                 <Button color="primary" variant="contained" size="small" onClick={this.handleClick}>Next</Button>
