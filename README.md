@@ -33,5 +33,3 @@ The Components:
 ## Project Notes
 
 By creating an outline and working on the skeleton first, I was able to visualize the finished project.  The project will be integral to my future in React and I believe it would be great to use as reference material.
-
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
