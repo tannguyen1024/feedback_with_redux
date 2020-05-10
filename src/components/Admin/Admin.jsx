@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2'
+import { Button } from '@material-ui/core'
 import "./Admin.css"
 
 class Admin extends Component {
@@ -54,11 +55,33 @@ class Admin extends Component {
         })
     } // End axios DELETE
 
+    handlePut = (id) => {
+        console.log(`Put ID is:`, id.id)
+        if(id.flagged== false){
+        axios.put(`/feedback/${id.id}`)
+            .then(response => {
+                console.log('Here is your response:', response); /* DELETE from Server works! */
+                this.getFeedback(); /* Refreshes DOM with updated response.data */
+            }).catch(error => {
+                console.log(error)
+            })
+        }
+        else if (id.flagged == true) {
+            axios.put(`/feedback/true/${id.id}`)
+                .then(response => {
+                    console.log('Here is your response:', response); /* DELETE from Server works! */
+                    this.getFeedback(); /* Refreshes DOM with updated response.data */
+                }).catch(error => {
+                    console.log(error)
+                })
+        }
+    }
+
     render() {
         // console.log('State is:',this.state)
         return (
             <>
-            <h1>Admin</h1>
+            <h1>Administrative Page</h1>
                 <table>
                     <thead>
                         <tr>
@@ -80,8 +103,8 @@ class Admin extends Component {
                                     <td>{feedback.support}</td>
                                     <td>{feedback.comments}</td>
                                     <td>{feedback.date}</td>
-                                    <td>{String(feedback.flagged)}</td>
-                                    <td><div onClick={() => { this.handleDelete(feedback.id) }}>🗑</div></td>
+                                    <td><Button onClick={() => { this.handlePut(feedback) }}>{String(feedback.flagged)}</Button></td>
+                                    <td><Button onClick={() => { this.handleDelete(feedback) }}>🗑</Button></td>
                                 </tr>
                             );
                         })}

@@ -4,11 +4,11 @@ table {
 }
 
 th {
-  border: 1px solid #000000;
+  border: 0.5px solid #000000;
   background-color: #ffe4e1;
 }
 
 td {
-  border: 1px solid black;
+  border: 0.5px solid black;
   background-color: #d5fffc;
 }

@@ -26,6 +26,32 @@ router.delete('/:id', (req, res) => {
     }) // End Catch
 }) // END DELETE Route
 
+// PUT Route
+router.put('/:id', (req, res) => {
+    let id = req.params.id;
+    let queryText = `UPDATE feedback SET flagged=TRUE WHERE id=$1;`;
+    pool.query(queryText, [id])
+        .then((result) => {
+            res.sendStatus(200)
+        }).catch((error) => {
+            console.log(`An error has occurred`, error);
+            res.sendStatus(500);
+        }) // End Catch
+}) // END PUT Route
+
+// PUT Route
+router.put('/true/:id', (req, res) => {
+    let id = req.params.id;
+    let queryText = `UPDATE feedback SET flagged=FALSE WHERE id=$1;`;
+    pool.query(queryText, [id])
+        .then((result) => {
+            res.sendStatus(200)
+        }).catch((error) => {
+            console.log(`An error has occurred`, error);
+            res.sendStatus(500);
+        }) // End Catch
+}) // END PUT Route
+
 // POST Route
 router.post('/', (req, res) => {
     let queryText = `INSERT INTO feedback (feeling, understanding, support, comments) VALUES ($1, $2, $3, $4);`;
