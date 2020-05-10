@@ -28,7 +28,7 @@ The Components:
 - Review your feedback before submitting to database.
 ![review](example/project5.png)
 - Administrative view allows marking feedback as flagged or deleting them.
-![admin](example/project6.png))
+![admin](example/project6.png)
 
 ## Project Notes
 
