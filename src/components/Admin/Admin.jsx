@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2'
+import "./Admin.css"
 
 class Admin extends Component {
     state = {
@@ -25,13 +27,31 @@ class Admin extends Component {
 
     handleDelete = (id) => {
         console.log(`Delete ID is:`, id)
-        axios.delete(`/feedback/${id}`)
-            .then(response => {
-                console.log('Here is your response:', response); /* DELETE from Server works! */
-                this.getFeedback(); /* Refreshes DOM with updated response.data */
-            }).catch(error => {
-                console.log(error)
-            })
+        /* Sweet Alert 2 Integration */
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#A130FF',
+            cancelButtonColor: '#FFB522',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+                axios.delete(`/feedback/${id}`)
+                    .then(response => {
+                        console.log('Here is your response:', response); /* DELETE from Server works! */
+                        this.getFeedback(); /* Refreshes DOM with updated response.data */
+                    }).catch(error => {
+                        console.log(error)
+                    })
+            }
+        })
     } // End axios DELETE
 
     render() {
@@ -61,7 +81,7 @@ class Admin extends Component {
                                     <td>{feedback.comments}</td>
                                     <td>{feedback.date}</td>
                                     <td>{String(feedback.flagged)}</td>
-                                    <td><button onClick={() => {this.handleDelete(feedback.id)}}>Delete</button></td>
+                                    <td><div onClick={() => { this.handleDelete(feedback.id) }}>🗑</div></td>
                                 </tr>
                             );
                         })}
